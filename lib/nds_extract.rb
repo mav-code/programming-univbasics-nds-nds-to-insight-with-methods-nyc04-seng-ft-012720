@@ -12,6 +12,17 @@ end
 #
 # { directorOne => allTheMoneyTheyMade, ... }
 def directors_totals(nds)
-  result = {}
-  nil
+  totals = {}
+  directorcounter = 0
+  while directorcounter < directors_database.length do
+    total = 0
+    moviecounter = 0
+    while moviecounter < directors_database[directorcounter][:movies].length do
+      total = total + directors_database[directorcounter][:movies][moviecounter][:worldwide_gross]
+      moviecounter += 1
+    end
+      totals[directors_database[directorcounter][:name]] = total
+    directorcounter += 1
+  end
+  p totals
 end
