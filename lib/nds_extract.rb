@@ -14,14 +14,14 @@ end
 def directors_totals(nds)
   totals = {}
   directorcounter = 0
-  while directorcounter < directors_database.length do
+  while directorcounter < nds.length do
     total = 0
     moviecounter = 0
-    while moviecounter < directors_database[directorcounter][:movies].length do
-      total = total + directors_database[directorcounter][:movies][moviecounter][:worldwide_gross]
+    while moviecounter < nds[directorcounter][:movies].length do
+      total = total + nds[directorcounter][:movies][moviecounter][:worldwide_gross]
       moviecounter += 1
     end
-      totals[directors_database[directorcounter][:name]] = total
+      totals[nds[directorcounter][:name]] = total
     directorcounter += 1
   end
   p totals
